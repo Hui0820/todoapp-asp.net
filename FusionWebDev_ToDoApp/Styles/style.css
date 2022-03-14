@@ -1,0 +1,47 @@
+﻿h3 {
+    color: #212529;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li.checklist-item {
+    background-color: #f4f6f7;
+}
+
+input.form-control {
+    height: 45px !important;
+    font-size: 1.2rem !important;
+    max-width: unset !important;
+}
+
+button[type="submit"] {
+    height: 45px;
+    width: 80px;
+    font-size: 1.2rem;
+}
+
+input[type="checkbox"].form-check-input {
+    width: 18px;
+    height: 18px;
+}
+
+input[type="checkbox"]:checked + label.strikethrough {
+    text-decoration: line-through;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.checklist-item label {
+    margin-left: 30px;
+    font-size: 1.2rem;
+}
+
+.fa-minus-circle {
+    color: #138496;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+}
