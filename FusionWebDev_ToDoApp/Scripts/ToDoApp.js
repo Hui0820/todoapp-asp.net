@@ -32,7 +32,7 @@
 	// POST api call
 	async function postData(url, data) {
 		try {
-			const response = await fetch(url, {
+			await fetch(url, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -62,7 +62,6 @@
 
 	// DELETE api call
 	async function removeData(url) {
-		console.log(url);
 		try {
 			await fetch(url, {
 				method: 'DELETE',
@@ -87,10 +86,11 @@
 			label = $("<label>").attr("for", id).addClass("mb-1").text(item);
 		}
 
-		const removeIcon = $("<i>").addClass("fa fa-minus-circle")
+		const removeBtn = $("<a>").attr("aria-label", "Remove item").attr("role", "button")
 			.on("click", removeListItem);
-
-		listContainer.append(checkbox, label, removeIcon);
+		const removeIcon = $("<i>").addClass("fa fa-minus-circle").attr("aria-hidden", "true");
+		removeBtn.append(removeIcon);
+		listContainer.append(checkbox, label, removeBtn);
 
 		return listContainer;
 	}
@@ -106,7 +106,8 @@
 
 	// Remove icon click event listener
 	async function removeListItem(e) {
-		const id = $(e.target).prev().prev()[0].id;
+		console.log($(e.target));
+		const id = $(e.target).closest("a").prev().prev()[0].id;
 
 		await removeData(`/api/ToDo/${id}`);
 		getList("/api/ToDo");
