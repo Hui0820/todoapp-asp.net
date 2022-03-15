@@ -101,7 +101,7 @@
 		const id = $(e.target)[0].id;
 
 		await updateData(`/api/ToDo/${id}`, isChecked);
-		await getList("/api/ToDo");
+		getList("/api/ToDo");
 	}
 
 	// Remove icon click event listener
@@ -110,7 +110,7 @@
 		const id = $(e.target).closest("a").prev().prev()[0].id;
 
 		await removeData(`/api/ToDo/${id}`);
-		await getList("/api/ToDo");
+		getList("/api/ToDo");
 	}
 
 	// If checklist is/isn't empty, show/remove message
@@ -131,7 +131,7 @@
 
 
 	// Get all items on page load
-	await getList("/api/ToDo");
+	getList("/api/ToDo");
 
 	// Add new item on form submit
 	$("form").on("submit", async (e) => {
@@ -139,7 +139,7 @@
 
 		const newItemText = $("#new-item").val();
 		await postData("/api/ToDo", newItemText);
-		await getList("/api/ToDo");
+		getList("/api/ToDo");
 		$("#new-item").val("");
 	});
 });
