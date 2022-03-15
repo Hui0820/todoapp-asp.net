@@ -8,7 +8,9 @@ ul {
 
 li.checklist-item {
     background-color: #f4f6f7;
+    min-height: 57px;
 }
+
 
 input.form-control {
     height: 45px !important;
@@ -36,6 +38,8 @@ input[type="checkbox"]:checked + label.strikethrough {
 .checklist-item label {
     margin-left: 30px;
     font-size: 1.2rem;
+    overflow-x: hidden;
+    padding-right: 40px;
 }
 
 .fa-minus-circle {
@@ -43,5 +47,6 @@ input[type="checkbox"]:checked + label.strikethrough {
     font-size: 1.5rem;
     position: absolute;
     right: 20px;
+    top: 30%;
     cursor: pointer;
 }
